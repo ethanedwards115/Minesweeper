@@ -1,7 +1,7 @@
 ﻿
 namespace Minesweeper
 {
-    partial class Form1
+    partial class Minesweeper
     {
         /// <summary>
         /// Required designer variable.
