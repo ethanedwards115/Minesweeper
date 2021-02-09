@@ -12,7 +12,7 @@ namespace Minesweeper
         private int y;
         private bool revealed;
         private bool hasMine;
-        private int mineCount;
+        private int minesAroundCell;
 
         public Cell(int _x, int _y)
         {
@@ -20,27 +20,32 @@ namespace Minesweeper
             y = _y;
             revealed = false;
             hasMine = false;
-            mineCount = 0;
+            minesAroundCell = 0;
         }
 
-        public int getX()
+        public int GetX()
         {
             return x;
         }
 
-        public int getY()
+        public int GetY()
         {
             return y;
         }
 
-        public bool isRevealed()
+        public bool IsRevealed()
         {
             return revealed;
         }
 
-        public bool isMine()
+        public bool IsMine()
         {
             return hasMine;
+        }
+
+        public int GetMinesAroundCell()
+        {
+            return minesAroundCell;
         }
     }
 }
