@@ -13,6 +13,7 @@ namespace Minesweeper
         private bool revealed;
         private bool hasMine;
         private int minesAroundCell;
+        private bool flagState;
 
         public Cell(int _x, int _y)
         {
@@ -21,6 +22,7 @@ namespace Minesweeper
             revealed = false;
             hasMine = false;
             minesAroundCell = 0;
+            flagState = false;
         }
 
         public int GetX()
@@ -46,6 +48,16 @@ namespace Minesweeper
         public int GetMinesAroundCell()
         {
             return minesAroundCell;
+        }
+
+        public bool GetFlagState()
+        {
+            return flagState;
+        }
+
+        public void setFlagState(bool flagState)
+        {
+            this.flagState = flagState;
         }
     }
 }
