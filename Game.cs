@@ -23,9 +23,8 @@ public class Game
 			// Euans Code here
         }
 		else if(e.button == System.Windows.Forms.MouseButtons.Right)
-        {
-			Cell.setFlagState(true);
-			// Line here to set the button text to F (for flag)
-        }
+        { // Right now function is generic, needs to be made to edit the individual button
+			cells[col][row].setFlagState(true);
+			btn[col][row].Text = "Flag";
     }
 }
