@@ -24,19 +24,51 @@ namespace Minesweeper
 
             g = Grid.newGrid("medium", this);
 
-            void newGameBtnClicked(object sender, MouseEventArgs e)
+            void EasyStartBtnClicked(object sender, MouseEventArgs e)
+            {
+                bool newGame = StartNewGame();
+                if (newGame)
+                {
+                    g = Grid.newGrid("easy", this);
+                }
+            }
+
+            void MediumStartBtnClicked(object sender, MouseEventArgs e)
+            {
+                bool newGame = StartNewGame();
+                if (newGame)
+                {
+                    g = Grid.newGrid("medium", this);
+                }
+            }
+
+            void HardStartBtnClicked(object sender, MouseEventArgs e)
+            {
+                bool newGame = StartNewGame();
+                if (newGame)
+                {
+                    g = Grid.newGrid("hard", this);
+                }
+            }
+
+            this.EasyStartBtn.MouseClick += EasyStartBtnClicked;
+            this.MediumStartBtn.MouseClick += MediumStartBtnClicked;
+            this.HardStartBtn.MouseClick += HardStartBtnClicked;
+        }
+
+        public bool StartNewGame()
+        {
+            var newGame = System.Windows.Forms.MessageBox.Show("Are you sure you want to start a new game?", "New Game", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            if (newGame == DialogResult.Yes)
             {
                 StopTimer();
-
                 foreach (Cell c in g.GetCells())
                 {
                     this.Controls.Remove(c.GetControl());
                 }
-
-                g = Grid.newGrid("medium", this);
+                return true;
             }
-
-            this.NewGameBtn.MouseClick += newGameBtnClicked;
+            return false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

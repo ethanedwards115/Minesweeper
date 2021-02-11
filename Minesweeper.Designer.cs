@@ -30,20 +30,22 @@ namespace Minesweeper
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.NewGameBtn = new System.Windows.Forms.Button();
+            this.EasyStartBtn = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.displayTime = new System.Windows.Forms.Label();
+            this.MediumStartBtn = new System.Windows.Forms.Button();
+            this.HardStartBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // NewGameBtn
+            // EasyStartBtn
             // 
-            this.NewGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.NewGameBtn.Location = new System.Drawing.Point(10, 10);
-            this.NewGameBtn.Name = "NewGameBtn";
-            this.NewGameBtn.Size = new System.Drawing.Size(120, 40);
-            this.NewGameBtn.TabIndex = 0;
-            this.NewGameBtn.Text = "New Game";
-            this.NewGameBtn.UseVisualStyleBackColor = true;
+            this.EasyStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.EasyStartBtn.Location = new System.Drawing.Point(12, 34);
+            this.EasyStartBtn.Name = "EasyStartBtn";
+            this.EasyStartBtn.Size = new System.Drawing.Size(120, 40);
+            this.EasyStartBtn.TabIndex = 0;
+            this.EasyStartBtn.Text = "Easy";
+            this.EasyStartBtn.UseVisualStyleBackColor = true;
             // 
             // timer
             // 
@@ -59,13 +61,35 @@ namespace Minesweeper
             this.displayTime.TabIndex = 1;
             this.displayTime.Text = "00:00.000";
             // 
+            // MediumStartBtn
+            // 
+            this.MediumStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.MediumStartBtn.Location = new System.Drawing.Point(12, 80);
+            this.MediumStartBtn.Name = "MediumStartBtn";
+            this.MediumStartBtn.Size = new System.Drawing.Size(120, 40);
+            this.MediumStartBtn.TabIndex = 2;
+            this.MediumStartBtn.Text = "Medium";
+            this.MediumStartBtn.UseVisualStyleBackColor = true;
+            // 
+            // HardStartBtn
+            // 
+            this.HardStartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.HardStartBtn.Location = new System.Drawing.Point(14, 126);
+            this.HardStartBtn.Name = "HardStartBtn";
+            this.HardStartBtn.Size = new System.Drawing.Size(120, 40);
+            this.HardStartBtn.TabIndex = 3;
+            this.HardStartBtn.Text = "Hard";
+            this.HardStartBtn.UseVisualStyleBackColor = true;
+            // 
             // Minesweeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 886);
+            this.Controls.Add(this.HardStartBtn);
+            this.Controls.Add(this.MediumStartBtn);
             this.Controls.Add(this.displayTime);
-            this.Controls.Add(this.NewGameBtn);
+            this.Controls.Add(this.EasyStartBtn);
             this.MaximizeBox = false;
             this.Name = "Minesweeper";
             this.Text = "Minesweeper";
@@ -76,9 +100,11 @@ namespace Minesweeper
 
         #endregion
 
-        private System.Windows.Forms.Button NewGameBtn;
+        private System.Windows.Forms.Button EasyStartBtn;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label displayTime;
+        private System.Windows.Forms.Button MediumStartBtn;
+        private System.Windows.Forms.Button HardStartBtn;
     }
 }
 
