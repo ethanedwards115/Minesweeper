@@ -150,17 +150,36 @@ namespace Minesweeper
 
         public void EndGame(bool gameWon)
         {
-            parent.StopTimer();
             gameOver = true;
-            // do stuff when game ends
+            parent.StopTimer();
+
+            string message;
 
             if (gameWon)
             {
-
+                message = "You Won";
             }
             else
             {
+                message = "You Lost";
+            }
 
+            foreach (Cell c in cells)
+            {
+                if (c.IsMine())
+                {
+                    c.Reveal();
+                }
+                else if (c.IsFlagged())
+                {
+                    c.SetBackColourWhite();
+                }
+            }
+            var playAgain = System.Windows.Forms.MessageBox.Show(message + "\nPlay Again?", "Game Over", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+            if (playAgain == DialogResult.No)
+            {
+                parent.Close();
             }
         }
     }

@@ -164,7 +164,10 @@ namespace Minesweeper
             if (this.IsMine())
             {
                 revealLabel.Text = "M";
-                parent.EndGame(false);
+                if (!parent.IsGameOver())
+                {
+                    parent.EndGame(false);
+                }
                 return;
             }
 
@@ -235,6 +238,11 @@ namespace Minesweeper
                 }
             }
             return total;
+        }
+
+        public void SetBackColourWhite()
+        {
+            revealLabel.BackColor = Color.White;
         }
     }
 }
