@@ -13,6 +13,7 @@ namespace Minesweeper
         private int x, y, w;
         private int col, row;
         private int offsetX, offsetY;
+        private int flagCounter = 0;
 
         private bool revealed;
         private bool flagged;
@@ -21,6 +22,10 @@ namespace Minesweeper
         private Label revealLabel;
 
         private Grid parent;
+
+        public Cell()
+        {
+        }
 
         public Cell(int _x, int _y, int _w, Grid _parent, int _col, int _row)
         {
@@ -50,6 +55,11 @@ namespace Minesweeper
         public int GetY()
         {
             return y;
+        }
+
+        public int GetFlagCounter()
+        {
+            return flagCounter;
         }
 
         public int GetRow()
@@ -126,7 +136,6 @@ namespace Minesweeper
                     break;
 
                     case MouseButtons.Right:
-
                         if(!revealed)
                             this.ToggleFlag();
                     break;
@@ -142,11 +151,13 @@ namespace Minesweeper
             {
                 revealLabel.Text = "⚐";
                 flagged = true;
+                flagCounter = flagCounter + 1;
             }
             else
             {
                 revealLabel.Text = "";
                 flagged = false;
+                flagCounter = flagCounter - 1;
             }
         }
 

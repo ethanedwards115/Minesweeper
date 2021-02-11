@@ -31,13 +31,14 @@ namespace Minesweeper
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // Minesweeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Minesweeper";
             this.Text = "Minesweeper";
+            this.MouseEnter += new System.EventHandler(this.Minesweeper_MouseEnter);
             this.ResumeLayout(false);
 
         }

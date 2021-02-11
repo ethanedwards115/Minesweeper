@@ -113,5 +113,10 @@ namespace Minesweeper
                 parent.Controls.Add(c.GetRevealLabel());
             }  
         }
+
+        public int GetMineCount()
+        {
+            return mineCount;
+        }
     }
 }
