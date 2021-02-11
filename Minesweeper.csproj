@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cell.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="Minesweeper.cs">
       <SubType>Form</SubType>
     </Compile>

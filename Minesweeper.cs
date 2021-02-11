@@ -15,6 +15,10 @@ namespace Minesweeper
         public Minesweeper()
         {
             InitializeComponent();
+
+            Grid g = new Grid(30, 40, 5);
+
+            Console.WriteLine("Done!");
         }
     }
 }
