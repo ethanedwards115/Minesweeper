@@ -23,8 +23,16 @@ public class Game
 			// Euans Code here
         }
 		else if(e.button == System.Windows.Forms.MouseButtons.Right)
-        { // Right now function is generic, needs to be made to edit the individual button
-			cells[col][row].setFlagState(true);
-			btn[col][row].Text = "Flag";
+        {
+			if (cells[col][row].getFlagState() == false) // If a flag is not placed
+            {
+				cells[col][row].setFlagState(true);
+				btn[col][row].Text = "Flag";
+			}
+            else // If a flag has already been placed
+            {
+				cells[col][row].setFlagState(false);
+				btn[col][row].Text = "";
+			}
     }
 }
