@@ -85,7 +85,7 @@ namespace Minesweeper
             return hasMine;
         }
 
-        public Label GetRevealLabel()
+        public Label GetControl()
         {
             return revealLabel;
         }
@@ -102,27 +102,33 @@ namespace Minesweeper
 
         private void CreateLabel()
         {
-            revealLabel = new Label();
+            revealLabel = new Label
+            {
+                Location = new Point(offsetX + x, offsetY + y),
+                Width = w,
+                Height = w,
 
-            revealLabel.Location = new Point(offsetX + x, offsetY + y);
-            revealLabel.Width = w;
-            revealLabel.Height = w;
+                BorderStyle = BorderStyle.FixedSingle,
 
-            revealLabel.BorderStyle = BorderStyle.FixedSingle;
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Microsoft Sans Serif", w / 2),
 
-            revealLabel.TextAlign = ContentAlignment.MiddleCenter;
-            revealLabel.Font = new Font("Microsoft Sans Serif", w/2);
-
-            revealLabel.BackColor = Color.PaleTurquoise;
+                BackColor = Color.PaleTurquoise
+            };
 
             void revealLabel_MouseClick(object sender, MouseEventArgs e)
             {
+                if (parent.IsGameOver()) return;
+
                 switch(e.Button)
                 {
                     case MouseButtons.Left:
 
+                        parent.GetMainParent().StartTimer();
+
                         if (!revealed)
                             this.Reveal();
+                        
                     break;
 
                     case MouseButtons.Right:
@@ -158,6 +164,7 @@ namespace Minesweeper
             if (this.IsMine())
             {
                 revealLabel.Text = "M";
+                parent.EndGame(false);
                 return;
             }
 
@@ -176,10 +183,13 @@ namespace Minesweeper
                 {
                     for (int r = -1; r <= 1; r++)
                     {
-                        if(!(c == 0 && r == 0) && (c != r))
+                        if(!(c == 0 && r == 0))
                         {
                             try
                             {
+                                if (Math.Abs(c) == Math.Abs(r) && cells[col + c, row + r].CountMines() == 0)
+                                    continue;
+
                                 cells[col + c, row + r].Reveal();
                             }
                             catch (IndexOutOfRangeException e)
@@ -194,6 +204,8 @@ namespace Minesweeper
             {
                 revealLabel.Text = Convert.ToString(surroundingMines);
             }
+
+            parent.CheckWinGame();
         }
 
         public int CountMines()
