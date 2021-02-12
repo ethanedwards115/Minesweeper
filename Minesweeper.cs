@@ -97,5 +97,12 @@ namespace Minesweeper
                 this.timer.Start();
             }
         }
+
+        private void HelpBtn_Click(object sender, EventArgs e)
+        {
+            string message = "Left-click cells to reveal them.\nIf the cell is a mine, you lose.\nIf the cell is next to a number of mines, it will display how many mines are around it.\nRight-clicking on a cell will place a flag. Use flags to keep track of potential mines.\nTo win, reveal all of the non-mine cells, and flag all of the cells with mines.\nStart a new game by clicking one of the difficulty options on the left.";
+
+            System.Windows.Forms.MessageBox.Show(message, "New Game", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
     }
 }
