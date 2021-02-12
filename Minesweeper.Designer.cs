@@ -66,6 +66,7 @@ namespace Minesweeper
             this.ClientSize = new System.Drawing.Size(1184, 886);
             this.Controls.Add(this.displayTime);
             this.Controls.Add(this.NewGameBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Minesweeper";
             this.Text = "Minesweeper";
