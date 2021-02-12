@@ -1,4 +1,3 @@
-﻿
 namespace Minesweeper
 {
     partial class Minesweeper
@@ -122,4 +121,3 @@ namespace Minesweeper
         private System.Windows.Forms.Button HelpBtn;
     }
 }
-
