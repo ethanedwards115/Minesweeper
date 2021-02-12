@@ -54,6 +54,9 @@ namespace Minesweeper
             this.EasyStartBtn.MouseClick += EasyStartBtnClicked;
             this.MediumStartBtn.MouseClick += MediumStartBtnClicked;
             this.HardStartBtn.MouseClick += HardStartBtnClicked;
+
+            timer.Interval = 1;
+            UpdateFlagCounter(g.GetMineCount());
         }
 
         public bool StartNewGame()
@@ -74,7 +77,7 @@ namespace Minesweeper
         private void timer1_Tick(object sender, EventArgs e)
         {
             timeElapsed = DateTime.Now - startTime;
-            displayTime.Text = timeElapsed.ToString();
+            displayTimeLabel.Text = timeElapsed.ToString(@"hh\:mm\:ss\.fff");
         }
 
         public void StopTimer()
@@ -84,7 +87,7 @@ namespace Minesweeper
                 this.timer.Stop();
                 this.timer.Enabled = false;
                 timeElapsed = TimeSpan.Zero;
-                displayTime.Text = "00:00.000";
+                displayTimeLabel.Text = "00:00.000";
             }
         }
 
@@ -103,6 +106,20 @@ namespace Minesweeper
             string message = "Left-click cells to reveal them.\nIf the cell is a mine, you lose.\nIf the cell is next to a number of mines, it will display how many mines are around it.\nRight-clicking on a cell will place a flag. Use flags to keep track of potential mines.\nTo win, reveal all of the non-mine cells, and flag all of the cells with mines.\nStart a new game by clicking one of the difficulty options on the left.";
 
             System.Windows.Forms.MessageBox.Show(message, "New Game", MessageBoxButtons.OK, MessageBoxIcon.None);
+        }
+
+        public void UpdateFlagCounter(int newFlagCount)
+        {
+            if (newFlagCount >= 0)
+            {
+                flagCounterLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                flagCounterLabel.ForeColor = Color.IndianRed;
+            }
+
+            flagCounterLabel.Text = "Remaining flags: " + Convert.ToString(newFlagCount);
         }
     }
 }
