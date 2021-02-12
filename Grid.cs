@@ -24,6 +24,7 @@ namespace Minesweeper
         private int cols;
         private int rows;
         private int mineCount;
+        public int RemainingFlags {get; set;}
 
         private Minesweeper parent;
         private bool gameOver;
@@ -33,6 +34,7 @@ namespace Minesweeper
             cols = _cols;
             rows = _rows;
             mineCount = _mineCount;
+            RemainingFlags = _mineCount;
 
             x = _x;
             y = _y;
@@ -52,22 +54,28 @@ namespace Minesweeper
 
         public static Grid newGrid(string difficulty, Minesweeper _parent)
         {
+
+            Grid g;
+
             if (difficulty.Equals("easy"))
             {
-                return new Grid(10, 8, 10, EasyWidth, _parent.Width/2 - EasyWidth/2, 100, _parent);
+                g = new Grid(10, 8, 10, EasyWidth, _parent.Width/2 - EasyWidth/2, 100, _parent);
             }
             else if(difficulty.Equals("medium"))
             {
-                return new Grid(18, 14, 40, MedWidth, _parent.Width/2 - MedWidth/2, 100, _parent);
+                g = new Grid(18, 14, 40, MedWidth, _parent.Width/2 - MedWidth/2, 100, _parent);
             }
             else if (difficulty.Equals("hard"))
             {
-                return new Grid(24, 20, 99, HardWidth, _parent.Width/2 - HardWidth/2, 100, _parent);
+                g = new Grid(24, 20, 99, HardWidth, _parent.Width/2 - HardWidth/2, 100, _parent);
             }
             else
             {
                 throw new InvalidOperationException();
             }
+
+            _parent.UpdateFlagCounter(g.GetMineCount());
+            return g;
         }
 
         public Cell[,] GetCells()
@@ -181,6 +189,11 @@ namespace Minesweeper
             {
                 parent.Close();
             }
+        }
+
+        public void UpdateFlagCounter()
+        {
+            parent.UpdateFlagCounter(RemainingFlags);
         }
     }
 }

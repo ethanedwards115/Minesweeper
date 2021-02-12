@@ -1,4 +1,4 @@
-namespace Minesweeper
+﻿namespace Minesweeper
 {
     partial class Minesweeper
     {
@@ -31,10 +31,11 @@ namespace Minesweeper
             this.components = new System.ComponentModel.Container();
             this.EasyStartBtn = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.displayTime = new System.Windows.Forms.Label();
+            this.displayTimeLabel = new System.Windows.Forms.Label();
             this.MediumStartBtn = new System.Windows.Forms.Button();
             this.HardStartBtn = new System.Windows.Forms.Button();
             this.HelpBtn = new System.Windows.Forms.Button();
+            this.flagCounterLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EasyStartBtn
@@ -51,15 +52,15 @@ namespace Minesweeper
             // 
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // displayTime
+            // displayTimeLabel
             // 
-            this.displayTime.AutoSize = true;
-            this.displayTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.displayTime.Location = new System.Drawing.Point(525, 33);
-            this.displayTime.Name = "displayTime";
-            this.displayTime.Size = new System.Drawing.Size(150, 36);
-            this.displayTime.TabIndex = 1;
-            this.displayTime.Text = "00:00.000";
+            this.displayTimeLabel.AutoSize = true;
+            this.displayTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.displayTimeLabel.Location = new System.Drawing.Point(525, 33);
+            this.displayTimeLabel.Name = "displayTimeLabel";
+            this.displayTimeLabel.Size = new System.Drawing.Size(150, 36);
+            this.displayTimeLabel.TabIndex = 1;
+            this.displayTimeLabel.Text = "00:00.000";
             // 
             // MediumStartBtn
             // 
@@ -91,6 +92,15 @@ namespace Minesweeper
             this.HelpBtn.Text = "Help";
             this.HelpBtn.UseVisualStyleBackColor = true;
             this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
+            //
+            // flagCounterLabel
+            //
+            this.flagCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.flagCounterLabel.Location = new System.Drawing.Point(750, 33);
+            this.flagCounterLabel.Name = "flagCounterLabel";
+            this.flagCounterLabel.Size = new System.Drawing.Size(200, 40);
+            this.flagCounterLabel.TabIndex = 5;
+            this.flagCounterLabel.Text = "Flags remaining: ";
             // 
             // Minesweeper
             // 
@@ -100,8 +110,9 @@ namespace Minesweeper
             this.Controls.Add(this.HelpBtn);
             this.Controls.Add(this.HardStartBtn);
             this.Controls.Add(this.MediumStartBtn);
-            this.Controls.Add(this.displayTime);
+            this.Controls.Add(this.displayTimeLabel);
             this.Controls.Add(this.EasyStartBtn);
+            this.Controls.Add(this.flagCounterLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Minesweeper";
@@ -115,9 +126,10 @@ namespace Minesweeper
 
         private System.Windows.Forms.Button EasyStartBtn;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label displayTime;
+        private System.Windows.Forms.Label displayTimeLabel;
         private System.Windows.Forms.Button MediumStartBtn;
         private System.Windows.Forms.Button HardStartBtn;
         private System.Windows.Forms.Button HelpBtn;
+        private System.Windows.Forms.Label flagCounterLabel;
     }
 }

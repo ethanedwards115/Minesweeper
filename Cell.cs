@@ -151,12 +151,16 @@ namespace Minesweeper
             {
                 revealLabel.Text = "⚐";
                 flagged = true;
+                parent.RemainingFlags--;
             }
             else
             {
                 revealLabel.Text = "";
                 flagged = false;
+                parent.RemainingFlags++;
             }
+
+            parent.UpdateFlagCounter();
         }
 
         public void Reveal()
