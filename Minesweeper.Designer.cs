@@ -103,9 +103,11 @@ namespace Minesweeper
             this.Controls.Add(this.MediumStartBtn);
             this.Controls.Add(this.displayTime);
             this.Controls.Add(this.EasyStartBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Minesweeper";
             this.Text = "Minesweeper";
+            this.Load += new System.EventHandler(this.Minesweeper_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
