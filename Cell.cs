@@ -136,7 +136,10 @@ namespace Minesweeper
                         if(!revealed)
                             this.ToggleFlag();
                     break;
+
                 }
+
+                parent.CheckWinGame();
             }
 
             revealLabel.MouseClick += revealLabel_MouseClick;
@@ -208,7 +211,7 @@ namespace Minesweeper
                 revealLabel.Text = Convert.ToString(surroundingMines);
             }
 
-            parent.CheckWinGame();
+            
         }
 
         public int CountMines()
